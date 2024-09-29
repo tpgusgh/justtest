@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel"> 
+        
+        function App(){
+        const [minutes, setMinutes] = React.useState(0);
+        const onChange = (event) => {
+            setMinutes(event.target.value);
+            console.log("hi")
+        };
+        const reset = () =>setMinutes(0);
+            return(
+                <div>
+                    <h1 className="">hi</h1>
+                    
+                    <div>
+                        <label htmlFor="minutes">Minutes</label>
+                        <input
+                        value = {minutes}
+                        id = "minutes"
+                        placeholder="Minutes"
+                        type="number"
+                        onChange={onChange}
+                        />
+                    </div>
+                    <div>
+                    <label htmlFor="hours">Hour</label>
+                    <input 
+                    value = {minutes}
+                    placeholder="Hour"
+                    id="hours"
+                    type="number" 
+                    disabled
+                    />
+                    </div>
+                    <button onClick={reset}>Reset</button>
+                </div>
+            );
+        }
+        const root = document.getElementById("root");
+        ReactDOM.render(<App />, root);
+
+
+
+        // let counter = 0;
+        // const root = document.getElementById("root")
+        // function countUp(){
+        //     counter = counter + 1;
+        //     render()
+        // }
+        // function render(){
+        //     ReactDOM.render(<Container />, root);
+        // }
+        /*
+        const h3 = React.createElement(
+            "h3",
+            {
+                id : "title",
+                onMouseEnter: () => console.log("mouse enter"),
+            },
+            "Hello"
+        );
+        */
+        // const btn = React.createElement(
+        //     "button",
+        //     {
+        //         onClick: () => console.log("im clicked"),
+        //         style: {
+        //             backgroundColor: "tomato",
+        //         },
+        //     },
+        //     "Click me"
+        // );
+        // function Container (){
+        //     return(
+        //         <div>
+        //             <h3>Total clicks: {counter}</h3>
+        //             <button onClick={countUp}>Click me</button>
+        //         </div>
+        //     );
+        // } 
+        // render()
+    </script>
+</html>
