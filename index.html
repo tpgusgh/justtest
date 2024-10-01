@@ -7,6 +7,7 @@
 </head>
 <body>
     <div id="root"></div>
+    
 </body>
 <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
@@ -15,11 +16,14 @@
         
         function App(){
         const [minutes, setMinutes] = React.useState(0);
+        const [flipped, setFlipped] = React.useState(false);
         const onChange = (event) => {
             setMinutes(event.target.value);
             console.log("hi")
         };
-        const reset = () =>setMinutes(0);
+        const reset = () => setMinutes(0);
+        const onflip = () => setFlipped((current) => !current);
+
             return(
                 <div>
                     <h1 className="">hi</h1>
@@ -27,24 +31,27 @@
                     <div>
                         <label htmlFor="minutes">Minutes</label>
                         <input
-                        value = {minutes}
+                        value = {flipped ? minutes*60 : minutes}
                         id = "minutes"
                         placeholder="Minutes"
                         type="number"
                         onChange={onChange}
+                        disabled={flipped}
                         />
                     </div>
                     <div>
                     <label htmlFor="hours">Hour</label>
                     <input 
-                    value = {minutes}
+                    value = {flipped ? minutes : minutes/60}
                     placeholder="Hour"
                     id="hours"
                     type="number" 
-                    disabled
+                    disabled={!flipped}
+                    onChange={onChange}
                     />
                     </div>
                     <button onClick={reset}>Reset</button>
+                    <button onClick={onflip}>{flipped ? "Turn back" : "flip"}</button>
                 </div>
             );
         }

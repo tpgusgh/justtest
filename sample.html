@@ -14,10 +14,15 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel"> 
     function App(){
+        const Appclicked = (event) => {
+            console.log('hi')
+        }
         return(
         <div>
             <form>
-                
+                <input
+                onChange={Appclicked}
+                />
             </form>
         </div>
         );
