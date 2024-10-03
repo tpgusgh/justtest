@@ -13,8 +13,7 @@
     <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel"> 
-        
-        function App(){
+        function MinutesToHours(){
         const [minutes, setMinutes] = React.useState(0);
         const [flipped, setFlipped] = React.useState(false);
         const onChange = (event) => {
@@ -52,6 +51,15 @@
                     </div>
                     <button onClick={reset}>Reset</button>
                     <button onClick={onflip}>{flipped ? "Turn back" : "flip"}</button>
+                </div>
+            );
+        }
+        function App(){
+            return(
+                <div>
+                    <h1 className="">hi</h1>
+                    <div>
+                    </div>
                 </div>
             );
         }
